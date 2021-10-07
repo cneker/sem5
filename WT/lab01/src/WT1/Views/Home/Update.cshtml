@@ -1,0 +1,40 @@
+﻿@model WT1.Models.Person;
+
+<form method="post" action="Update">
+    <label>Name: </label> <input type="text" name="Name" value="@Model.Name"> <br>
+    <label>Position: </label> <input type="text" name="Position" value="@Model.Position"> <br>
+    <label>Sex: </label>
+    @{
+        if (Model.Sex == "female")
+        {
+            <input type="radio" value="female" name="Sex" checked> <label>Woman</label>
+            <input type="radio" value="male" name="Sex"> <label>Man</label> <br>
+        }
+        else
+        {
+            <input type="radio" value="female" name="Sex"> <label>Woman</label>
+            <input type="radio" value="male" name="Sex" checked> <label>Man</label> <br>
+        }
+    }
+    
+    <label>Department: </label>
+    <select name="Department">
+        @{
+            if (Model.Department == "Administrator")
+            {
+                <option name="Department" value="Administrator" selected>Administrator</option>
+                <option name="Department" value="Student">Student</option>
+            }
+            else
+            {
+                <option name="Department" value="Administrator">Administrator</option>
+                <option name="Department" value="Student" selected>Student</option>
+            }
+        }
+    </select>
+    <label>E-mail: </label> <input type="text" name="Email" value="@Model.Email"> <br>
+    <label>Phone number: </label> <input type="text" name="Phone" value="@Model.Phone"> <br>
+    <label>Comments: </label> <input type="text" name="Comments" value="@Model.Comments"> <br>
+    <input type="hidden" name="Id" value="@Model.Id"/>
+    <input type="submit" value="submit" />
+</form>

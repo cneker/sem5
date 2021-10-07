@@ -1,0 +1,24 @@
+﻿@model List<Faculty>
+
+<form method="get" action="Home/Faculties">
+<table cellspacing="2" cellpadding="2" border="0">
+    <tr>
+        <td rowspan="3">
+            <select name="FacultyId" size="3">
+                @{
+                    if (Model is not null)
+                    {
+                        foreach (Faculty faculty in Model)
+                        {
+                            <option value=@faculty.Id>@faculty.Name</option>
+                        }
+                    }
+                }
+            </select>
+        </td>
+        <td>
+            <input type="submit" value="Chose" />
+        </td>
+    </tr>
+</table>
+</form>

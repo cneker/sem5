@@ -1,0 +1,28 @@
+﻿@model List<Course>
+
+<label>@Model.First().Faculty.Name</label>
+
+<form method="get" action="Groups">
+    <table cellspacing="2" cellpadding="2" border="0">
+        <tr>
+            <td rowspan="3">
+                <select name="CourseId" size="3">
+                    @{
+                        if (Model is not null)
+                        {
+                            foreach (Course course in Model)
+                            {
+                                <option value=@course.Id>@course.Name</option>
+                            }
+                        }
+                    }
+                </select>
+            </td>
+            <td>
+                <input type="submit" value="Chose" />
+                <input type="hidden" name="FacultyId" value="@Model.First().Faculty.Id" />
+                
+            </td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,35 @@
+﻿@using WT1.Models;
+@model List<Person>;
+
+<form method="post" action="Home/Third">
+    <table align="center" cellspacing="2" cellpadding="2" border="0">
+        <tr>
+            <td rowspan="3">
+                <select name="PersonId" size="3">
+                    @{
+                        if (Model is not null)
+                        {
+                            foreach (Person person in Model)
+                            {
+                                <option value=@person.Id>@person.Name</option>
+                            }
+                        }
+                    }
+                </select>
+            </td>
+            <td>
+                <input type="submit" name="Action" value="Insert" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="Action" value="Update" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="Action" value="Delete" />
+            </td>
+        </tr>
+    </table>
+</form>
