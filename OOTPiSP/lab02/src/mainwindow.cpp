@@ -68,7 +68,7 @@ void MainWindow::closeEvent(QCloseEvent *e)
         switch(QMessageBox::warning(this,
                                     "Document Modified",
                                     "The document has been modified, do you want to close it? You will lose all your changes.",
-                                    QMessageBox::Yes | QMessageBox::No, QMessageBox::No | QMessageBox::Close)){
+                                    QMessageBox::Yes | QMessageBox::No | QMessageBox::Close)){
         case(QMessageBox::Yes):
             saveFile();
             e->accept();
