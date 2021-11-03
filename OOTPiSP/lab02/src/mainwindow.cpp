@@ -93,7 +93,7 @@ void MainWindow::on_actionSelectFont_triggered()
     if (checked) {
         ui->textEdit->setFont(font);
         QSettings settings(this);
-        settings.setValue("VIEWF", font); //sho eta
+        settings.setValue("VIEWF", font);
     }
 }
 
