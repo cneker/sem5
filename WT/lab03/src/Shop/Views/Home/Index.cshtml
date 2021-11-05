@@ -1,0 +1,16 @@
+﻿@{
+    System.Diagnostics.Debug.Assert(User.Identity != null, "User.Identity != null");
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
+
+    <form method="get" asp-controller="Authorization" asp-action="LogOut">
+        <input type="submit" value="Logout"/>
+    </form>
+}
+else
+{
+    <a asp-controller="Authorization" asp-action="Authorize">LogIn</a>
+    <a asp-controller="Authorization" asp-action="Registration">Registration</a>
+}

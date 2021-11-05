@@ -1,0 +1,17 @@
+﻿@using System.IO
+@{
+    var root = new DirectoryInfo("wwwroot/");
+    var dirs = root.GetDirectories("*.*", SearchOption.AllDirectories);
+
+    foreach (var dir in dirs)
+    {
+        var files = dir.GetFiles("*.*", SearchOption.AllDirectories);
+        <label>Каталог @dir.FullName</label>
+        <br />
+        foreach (var file in files)
+        {
+            <label>Файл @file.FullName</label>
+            <br />
+        }
+    }
+}

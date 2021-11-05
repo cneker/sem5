@@ -1,0 +1,10 @@
+﻿@using System.IO
+@{
+    var text = new StreamReader("wwwroot/text.txt");
+    var line = text.ReadLine();
+    while (line != null)
+    {
+        @line<br>
+        line = text.ReadLine();
+    }
+}
