@@ -277,3 +277,46 @@ void MainWindow::SetConnection()
         qDebug() << sbd.lastError().text();
     }
 }
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    if(sbd.open()) {
+        QString _out = adasd;
+        QString t_out = adasd;
+        QString t_in = adasd;
+        QString t_all = adasd;
+        QString str = "SELECT id FROM reys WHERE t_out = '%1' AND t_in = '%2' AND = '%3';";
+        str = str.arg(t_out).arg(t_in).arg(t_all);
+
+        QSqlQuery query;
+        bool b = query.exec(str);
+        if(!b)
+            qDebug() << query.lastError();
+        else {
+            QMessageBox msg;
+            QString text = "Spisok ";
+            QSqlRecord rec = query.record();
+            while(query.next()){
+
+                str = "SELECT id FROM machine WHERE _out = '%1';";
+                str = str.arg(_out);
+                QSqlQuery query2;
+                b = query2.exec(str);
+                if(!b)
+                    qDebug() << query2.lastError();
+                else {
+                    while(query2.next())
+                    {
+                    QSqlRecord rc = query2.record();
+
+                    int id = query2.value(rc.indexOf("id")).toInt();
+                    text += QString::number(id) + " ";
+
+                    }
+                }
+            }
+            msg.setText(text);
+            msg.exec();
+        }
+    }
+}
