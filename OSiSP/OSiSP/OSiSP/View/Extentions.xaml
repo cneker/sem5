@@ -1,0 +1,26 @@
+﻿<Window x:Class="OSiSP.View.Extentions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OSiSP.View"
+        mc:Ignorable="d"
+        Title="Extentions" Height="220" Width="270">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <WrapPanel DataContext="{Binding Path=Extensions}" Orientation="Vertical">
+            <TextBlock Text="FontSize" Width="100" Height="20" Margin="10, 10, 0, 5"/>
+            <TextBox Text="{Binding Path=FontSize, UpdateSourceTrigger=PropertyChanged}" Margin="10, 0, 0, 0"></TextBox>
+            <TextBlock Text="FontFamily" Width="100" Height="20" Margin="10, 10, 0, 5"/>
+            <TextBox Text="{Binding Path=FontFamily, UpdateSourceTrigger=PropertyChanged}" Margin="10, 0, 0, 0"></TextBox>
+            <TextBlock Text="FontWeight" Width="100" Height="20" Margin="10, 10, 0, 5"/>
+            <CheckBox IsChecked="{Binding Bold}" Content="Bold" Margin="10, 10, 0, 5"></CheckBox>
+        </WrapPanel>
+        <WrapPanel Grid.Column="1">
+            <Button Content="Add" Command="{Binding SaveCommand}" Margin="15, 75, 0, 0" Width="50"></Button>
+        </WrapPanel>
+    </Grid>
+</Window>
